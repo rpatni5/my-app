@@ -1,0 +1,18 @@
+<!-- <form action="https://localhost:7253/create-checkout-session/{{userid}}" method="POST">
+
+
+  <button type="submit">Checkout</button>
+</form> -->
+<form [formGroup]="paymentForm" action="https://localhost:7253/create-checkout-session/{{userid}}"  (ngSubmit)="onPay()" method="POST">
+  <input type="text" name="customerId" placeholder="CustomerId" formControlName="CustomerID">
+  <input type="text" name="CustomerEmail" placeholder="Customer Name" formControlName="CustomerEmail">
+  <input type="text" name="orderId" placeholder="Order ID" formControlName="OrderID">
+  <input type="text" name="amountId" placeholder="Amount" formControlName="AmountID">
+ <br/>
+  <button type="submit" class="btn btn-large">Pay & Checkout</button>
+  </form>
+  <br/><br/>
+  <div>
+<button (click)="getPaymentLink()">Generate Payment link</button>
+Payment link:  {{paymentLink}}
+</div>
